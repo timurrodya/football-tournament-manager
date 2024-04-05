@@ -71,6 +71,10 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
+        "phpcs": "./vendor/bin/phpcs --standard=psr2 src -n",
+        "phpstan": "./vendor/bin/phpstan analyse src  -c ./phpstan.neon --memory-limit=2G",
+        "rector": "./vendor/bin/rector process --dry-run",
+        "rector-fix": "./vendor/bin/rector process --clear-cache",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
@@ -92,7 +96,10 @@
         }
     },
     "require-dev": {
+        "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^9.5",
+        "rector/rector": "^1.0",
+        "squizlabs/php_codesniffer": "^3.9",
         "symfony/browser-kit": "5.4.*",
         "symfony/css-selector": "5.4.*",
         "symfony/debug-bundle": "5.4.*",
