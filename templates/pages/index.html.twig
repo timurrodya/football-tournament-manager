@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h3>Список турниров</h3>
+
+                {% for tournament in tournaments %}
+                    {{ include('pages/tournaments/row.html.twig') }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

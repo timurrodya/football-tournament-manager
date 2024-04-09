@@ -1,0 +1,14 @@
+<div class="row border">
+    <div class="col-1">{{ tournament.id }}</div>
+    <div class="col-7">{{ tournament.name }}</div>
+    <div class="col-2">
+        <a href="{{ path('tournament', {'slug': tournament.slug}) }}"
+           class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Смотреть</a>
+    </div>
+    <div class="col-2">
+        <a href="{{ path('tournament_delete', {'slug': tournament.slug, 'token': csrf_token('delete' ~ tournament.id)}) }}"
+           onclick="return confirm('Хотите удалить турнир ?')"
+           class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">Удалить</a>
+    </div>
+</div>
+

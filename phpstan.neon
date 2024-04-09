@@ -3,3 +3,6 @@ parameters:
     paths:
         - src/
         - tests/
+    ignoreErrors:
+         - message: '#Property [a-zA-Z0-9\\_]+::\$id is never written, only read.#'
+         - message: '#Property [a-zA-Z0-9\\_]+::\$slug is never written, only read.#'

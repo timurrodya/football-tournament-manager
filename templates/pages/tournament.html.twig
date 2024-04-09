@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Турнир   {{ tournament.name }}{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h3>Турнир {{ tournament.name }}</h3>
+                {% for game in games %}
+                    <div class="row border">
+                        <div class="col-3">{{ game.day|date("Y-m-d") }}</div>
+                        <div class="col-3">{{ game.TeamHome }}</div>
+                        <div class="col-2">vs</div>
+                        <div class="col-3">{{ game.TeamAway }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

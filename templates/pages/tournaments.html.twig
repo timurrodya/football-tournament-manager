@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Список турниров{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h3>Список турниров</h3>
+
+                {% for tournament in tournaments %}
+                    {{ include('pages/tournaments/row.html.twig') }}
+                {% endfor %}
+
+            </div>
+            <div class="col-4">
+                <h3>Добавить турнир</h3>
+                {{ form_start(form, {'attr': {'class': 'form'}}) }}
+                {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.team, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.save, {'attr': {'class': 'form-control'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

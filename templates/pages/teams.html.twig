@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Команды{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h3>Список команд</h3>
+                {% for team in teams %}
+                    <div class="row border">
+                        <div class="col-1">{{ team.id }}</div>
+                        <div class="col-7">{{ team.name }}</div>
+                        <div class="col-2">
+                            <a href="{{ path('team_delete', {'id': team.id, 'token': csrf_token('delete' ~ team.id)}) }}"
+                               onclick="return confirm('Хотите удалить команду ?')"
+                               class="btn btn-danger btn-sm" tabindex="-1" role="button" aria-disabled="true">Удалить</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-4">
+                <h3>Добавить команду</h3>
+                {{ form_start(form, {'attr': {'class': 'form'}}) }}
+
+                {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.save, {'attr': {'class': 'form-control'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
